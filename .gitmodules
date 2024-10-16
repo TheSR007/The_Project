@@ -1,0 +1,21 @@
+[submodule "Projects/C_Projects"]
+	path = Projects/C_Projects
+	url = https://github.com/TheSR007/C_Projects.git
+[submodule "Projects/CPP_Projects"]
+	path = Projects/CPP_Projects
+	url = https://github.com/TheSR007/CPP_Projects.git
+[submodule "Projects/Python_Projects"]
+	path = Projects/Python_Projects
+	url = https://github.com/TheSR007/Python_Projects.git
+[submodule "Projects/Rust_Projects"]
+	path = Projects/Rust_Projects
+	url = https://github.com/TheSR007/Rust_Projects.git
+[submodule "Projects/Go_Projects"]
+	path = Projects/Go_Projects
+	url = https://github.com/TheSR007/Go_Projects.git
+[submodule "Projects/IoT_Projects"]
+	path = Projects/IoT_Projects
+	url = https://github.com/TheSR007/IoT_Projects.git
+[submodule "Projects/KeepNotes"]
+	path = Projects/KeepNotes
+	url = https://github.com/TheSR007/KeepNotes.git
