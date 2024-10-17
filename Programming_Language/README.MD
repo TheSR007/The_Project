@@ -7,4 +7,4 @@ For Every Language I will assume you know how to write and run Them.
 - if There is any proper Documentation/CheatSheet already I will link to that that
 - You will also Find Snippets of Some of the languages in snippet repo in future
 ## Progress
-- [X] C
+- [X] [C](c.c)

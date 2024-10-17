@@ -1,5 +1,5 @@
 # The Project
-## Programming Language
+## [Programming Language](Programming_Language)
 - [ ] [C](Programming_Language/c.c) (in Progress)
 - [ ] Lua
 - [ ] C++
@@ -34,20 +34,12 @@
 - [X] [DiffChecker](https://thesr.live/DiffChecker.html)
 - [X] [My Tools](https://thesr.live/index.html)
 
-## Projects
-- [C Projects](Projects/C_Projects/)
-- [CPP Projects](Projects/CPP_Projects/)
-- [Python Projects](Projects/Python_Projects/)
-- [Rust Projects](Projects/Rust_Projects/)
-- [Go Projects](Projects/Go_Projects/)
-- [IoT Projects](Projects/IoT_Projects/)
-- [KeepNotes](Projects/KeepNotes/)
+## [Projects](Projects)
 
-
-## Guides/Cheatsheets
-### [ZSH](Guides/Zsh/README.MD)
-### [Arch](Guides/Arch/README.MD)
-### [Kali WSL](Guides/Kali_WSL/README.MD)
+## [Guides/Cheatsheets](Guides)
+### [ZSH](Guides/Zsh/)
+### [Arch](Guides/Arch/)
+### [Kali WSL](Guides/Kali_WSL/)
 ### [Windows Shortcuts](Guides/Windows_Shortcuts.MD)
 ### [Google Search Operators](Guides/Google_Search_Operators.MD)
 
