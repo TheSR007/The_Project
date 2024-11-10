@@ -1,6 +1,6 @@
 # The Project
 ## [Programming Language](Programming_Language)
-- [ ] [C](Programming_Language/c.c) (in Progress)
+- [X] [C](Programming_Language/c.c)
 - [ ] Lua
 - [ ] C++
 - [ ] Python

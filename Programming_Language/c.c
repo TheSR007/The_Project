@@ -1,5 +1,7 @@
 // This is a cheatsheet that's all you need to Code in C
-// look for proper Documentation/Reference for the standard libraries
+// I assume that you know all the basics, if you don't learn from
+// https://www.w3schools.com/c/index.php (Beginner)
+// https://www.tutorialspoint.com/cprogramming/index.htm (Advance)
 
 // Comments
 // by TheSR  (single line Comment)
@@ -1023,20 +1025,37 @@
                     printf("%d\n", *(myNumbers + i));
                 *(myNumber + 1) = 55; // Also possible to change the value of the second element using pointer 
     
-    Function
+    Functions
        syntax: type func_name (type arg1, ...); 
        Here type of func_name is the return type of the function
        and type of arg1 is the type of the argument1
+       Note: func_name must be in Character Set
        Example:
             int add(int a, int b); // this is called prototyping
         check The Function Section for more info about Function
     */
 
+// Variables
+    /*
+        syntax: type name; // Optionally you can assign a Initial Value too
+        Note: name must be in Character Set and type must be of Data Types Except functions which can be the assigned Value; 
+        Example:
+            int X;  // Declaration of X
+            int Y = add(5,3);   // Initialization of Y
+    */
+// Statements & Expressions
+    /*
+        Statements are instructions that the C compiler executes. They can include variable assignments, function calls, loops, and conditionals. 
+        Expressions are combinations of variables, operators, and values that produce a result.
+        Example:
+            int x = 9; (Expression) [Telling The Compiler to create a Variable of Type int and to assign 9 to it]
+            printf("Hello, World!"); (Statement) [Telling the Compiler to print Hello, World! in the stdout]
+    */
 // Type Conversion
     /*
     There are two types of conversion in C
         1. Implicit Conversion (automatically)
-        2. Explicit Conversion (manually)
+        2. Explicit Conversion (manually aka Type Casting)
 
         Implicit Conversion
             Implicit conversion is done automatically by the compiler when you assign a value of one type to another.
@@ -1072,17 +1091,352 @@
             printf("%.1f", sum); // 2.5
     */
 
-// Preprocessor Commands 
+// Memory 
+    // Memory Management
+        /*
+        1. Static
+        2. Dynamic
+
+        Static
+            The compiler manages how the memory is allocated to the variables declared in the code. Once the compiler allocates the required bytes of memory, it cannot be changed during the runtime.
+            The compiler employs static memory allocation approach.
+
+        Dynamic
+            If you don't know how much memory is recuired, then you need to allocate memory dynamically. 
+            C has several functions for dynamic memory allocation and management. These functions can be found in the <stdlib.h> header file.
+            |--------------------------------------------|---------------------------------------------------------------------------------------------|
+            | Function                                   | Description                                                                                 |
+            |--------------------------------------------|---------------------------------------------------------------------------------------------|
+            | void *calloc(int num, int size);           | This function allocates an array of num elements each of which size in bytes will be size.  | 
+            |--------------------------------------------|---------------------------------------------------------------------------------------------|
+            | void free(void *address);                  | This function releases a block of memory block specified by address.                        |
+            |--------------------------------------------|---------------------------------------------------------------------------------------------|
+            | void *malloc(size_t size);                 | This function allocates an array of num bytes and leave them uninitialized.                 |
+            |--------------------------------------------|---------------------------------------------------------------------------------------------|
+            | void *realloc(void *address, int newsize); | This function re-allocates memory extending it up to newsize.                               | 
+            |--------------------------------------------|---------------------------------------------------------------------------------------------|
+        */
+    // Memory Address
+        /*
+        The memory address is assigned to a variable when a variable is declared in C language. 
+        C compiler stores the value of the variable in the different segments of the memory.
+        |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | Memory Segments    | Description                                                                                                                                                                                                                                                                      |
+        |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | Text               | A text segment, also known as a Code Segment or simply as text, is one of the sections of a progris used to store the object version of the C program.                                                                                                                           |
+        |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | Initialized data   | The global variables and static variables that are initialized by the programmer are allocated the memory in the initialized data segment.                                                                                                                                       |
+        |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | Uninitialized data | An uninitialized data segment also called as bss (stands for block started by symbol). The program allocates memory for this segment when it loads. Every data in bss is initialized to arithmetic "0" and pointers to null pointer by the kernel before the C program executes. |
+        |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | Stack              | Stack is a LIFO (last in first out) data structure. Stack segment stores the value of local variables and values of parameters passed to a function. It also maintains the pointer to which a function call returns.                                                             |
+        |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | Heap               | Heap is used for allocating memory during the runtime. All the functions that perform dynamic memory allocation deal with heap.                                                                                                                                                  |
+        |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        
+        The memory addresses in C can be accessed or specified through the Address of (&) operator
+        syntax: &variable_name
+        */
+
+// Preprocessor Commands
     /*
-    Including Common header files
-        stdio.h − Provides input and output functions like printf and scanf.
-        stdlib.h − Contains functions involving memory allocation, rand function, and other utility functions.
-        math.h − Includes mathematical functions like sqrt, sin, cos, etc.
-        string.h − Includes functions for manipulating strings, such as strcpy, strlen, etc.
-        ctype.h − functions for testing and mapping characters, like isalpha, isdigit, etc.
-        stdbool.h − Defines the boolean data type and values true and false.
-        time.h − Contains functions for working with date and time.
-        limits.h − Defines various implementation-specific limits on integer types.
+    The preprocessor statements in C are called directives. 
+    A preprocessor section of the program always appears at the top of the C code. 
+    Each preprocessor statement starts with the hash (#) symbol.
+
+    Preprocessor Directives
+    |-----------|-----------------------------------------------------------------------|
+    | Directive | Description                                                           |
+    |-----------|-----------------------------------------------------------------------|
+    | #define   | Substitutes a preprocessor macro.                                     |
+    |-----------|-----------------------------------------------------------------------|
+    | #include	| Inserts a particular header from another file.                        |
+    |-----------|-----------------------------------------------------------------------|
+    | #undef	| Undefines a preprocessor macro.                                       |
+    |-----------|-----------------------------------------------------------------------|
+    | #ifdef	| Returns true if this macro is defined.                                |
+    |-----------|-----------------------------------------------------------------------|
+    | #ifndef	| Returns true if this macro is not defined.                            |
+    |-----------|-----------------------------------------------------------------------|
+    | #if	    | Tests if a compile time condition is true.                            |
+    |-----------|-----------------------------------------------------------------------|
+    | #else	    | The alternative for #if.                                              |
+    |-----------|-----------------------------------------------------------------------|
+    | #elif	    | #else and #if in one statement.                                       |
+    |-----------|-----------------------------------------------------------------------|
+    | #endif	| Ends preprocessor conditional.                                        |
+    |-----------|-----------------------------------------------------------------------|
+    | #error	| Prints error message on stderr.                                       |
+    |-----------|-----------------------------------------------------------------------|
+    | #pragma	| Issues special commands to the compiler, using a standardized method. |
+    |-----------|-----------------------------------------------------------------------|
+    
+    Example:
+        #include <stdio.h>  // #include directive to include the standard input-output header
+
+        #define PI 3.14  // #define directive to define a macro
+        #define DEBUG 1  // #define directive to define a macro for debugging
+        #define VERSION 2 // #define directive to define a version number
+
+        // Undefine a previously defined macro
+        #undef DEBUG
+
+        int main() {
+            // #ifdef checks if DEBUG is defined (DEBUG was undef'd above, so this won't be printed)
+            #ifdef DEBUG
+            printf("Debugging is enabled.\n");
+            #else
+            printf("Debugging is disabled.\n");
+            #endif
+
+            // #if evaluates a compile-time condition (check version)
+            #if VERSION == 2
+            printf("Version 2 is selected.\n");
+            #elif VERSION == 1
+            printf("Version 1 is selected.\n");
+            #else
+            printf("Unknown version.\n");
+            #endif
+
+            // #ifndef checks if the macro is NOT defined (RELEASE is not defined, so it will be defined here)
+            #ifndef RELEASE
+            #define RELEASE 0  // #define directive inside #ifndef block
+            #endif
+            printf("Release version: %d\n", RELEASE);
+
+            // #error directive to produce a compile-time error
+            #if PLATFORM != "Linux"
+            #error "This program must be compiled for Linux."
+            #endif
+
+            // Example of #pragma for compiler-specific instructions (using GCC in this case)
+            #pragma GCC optimize("O3")  // GCC optimization for faster execution
+
+            return 0;
+        }
+    
+    #pragma Directive
+        #pragma is used to provide additional information to the compiler.
+        Mainly used by the compiler to provide some special features.
+        Note: pragmas are compiler dependent. Not all the pragma directives are supported by all the compilers.
+        syntax: #pragma token_name
+
+    |----------------------------|------------------------------------------------------------------------------------------------------------|
+    | Directive                  | Description                                                                                                |
+    |----------------------------|------------------------------------------------------------------------------------------------------------|
+    | #pragma startup            | Before the execution of main(), the function specified in pragma is needed to run.                         |
+    |----------------------------|------------------------------------------------------------------------------------------------------------|
+    | #pragma exit               | Before the end of the program, the function specified in pragma is needed to run.                          |
+    |----------------------------|------------------------------------------------------------------------------------------------------------|
+    | #pragma warn               | Used to hide warning messages.                                                                             |
+    |----------------------------|------------------------------------------------------------------------------------------------------------|
+    | #pragma GCC dependency     | Checks the dates of the current and other files. If other file is more recent, it shows a warning message. |
+    |----------------------------|------------------------------------------------------------------------------------------------------------|
+    | #pragma GCC system_header  | Treats the code of the current file as if it came from a system header.                                    |
+    |----------------------------|------------------------------------------------------------------------------------------------------------|
+    | #pragma GCC poison         | Used to block an identifier from the program.                                                              |
+    |----------------------------|------------------------------------------------------------------------------------------------------------|
+    | #pragma once               | Ensures the compiler loads the header file only once.                                                      |
+    |----------------------------|------------------------------------------------------------------------------------------------------------|
+
+    Example:
+        #include <stdio.h>
+
+        // Startup function: This will be executed before the main function
+        int display() {
+            printf("\nI am in the display function (before main)\n");
+            return 0;
+        }
+
+        #pragma startup display  // Call the 'display' function before main execution
+
+        #pragma exit display  // Call the 'display' function before the program exits
+
+        // Disable return value warning (-rvl), enable unused parameter warning (+par),
+        // toggle unreachable code warning (.) which will flip between hide/show
+        #pragma warn -rvl          // Suppress warning about return values
+        #pragma warn +par          // Show warning for unused parameters
+        #pragma warn .rch          // Toggle warning for unreachable code (will alternate between show and hide)
+
+
+        // Poison the printf function (to block its use in the program)
+        #pragma GCC poison printf  // Poison the 'printf' function to prevent its usage
+
+        // Declare dependency on another file "depends.c" (simulated file)
+        #pragma GCC dependency "depends.c"  // Issue a warning if depends.c is more recent than this file
+
+        // Treat "library.h" as a system header to suppress warnings
+        #pragma GCC system_header  // Treat the following included header as a system header
+        #include "library.h"  // Include a header file (not used but shown for demonstration)
+
+        // Example of #pragma once to ensure the header is only included once
+        #pragma once  // Ensure the header file is included only once in the program
+
+        // A simple function definition in the "library.h"
+        void myFunction() {
+            printf("This function is defined in the system header.\n");
+        }
+
+        int main() {
+            // Attempting to use poisoned 'printf' will cause a compilation error
+            // printf("Hello World\n");  // This line will cause a compilation error due to the poison directive
+
+            printf("I am in the main function.\n");
+
+            // Call the function from the "system header" library
+            myFunction();
+
+            return 0;
+        }
+
+    Preprocessor Operators
+    |-----------------------------|------------------------------------------------------------------------------------|
+    | Operator                    | Description                                                                        |
+    |-----------------------------|------------------------------------------------------------------------------------|
+    | Continuation operator (\)   | Used to continue a macro that is too long for a single line.                       |
+    |-----------------------------|------------------------------------------------------------------------------------|
+    | Stringizing operator (#)    | Causes the corresponding actual argument to be enclosed in double quotation marks. |                   
+    |-----------------------------|------------------------------------------------------------------------------------|
+    | Token-pasting operator (##) | Allows tokens used as actual arguments to be concatenated to form other tokens.    |
+    |-----------------------------|------------------------------------------------------------------------------------|
+    | defined operator            | Simplifies the writing of compound expressions in certain macro directives.        |
+    |-----------------------------|------------------------------------------------------------------------------------|
+
+    Example:
+        #include <stdio.h>
+
+        // Token-pasting operator (##) example: Concatenates two tokens into one
+        #define CONCAT(a, b) a##b
+
+        // Stringizing operator (#) example: Converts macro argument to string
+        #define STRINGIZE(x) #x
+
+        // Line continuation operator (\) example: Breaks a macro definition across multiple lines
+        #define LONG_MACRO(a, b) \
+            a + b + 100         \
+            - 50
+
+        int main() {
+            // Token-pasting operator: Expands to 'xy'
+            int xy = 10;
+            printf("CONCAT(x, y): %d\n", CONCAT(x, y));  // Prints '10' (xy is the variable)
+
+            // Stringizing operator: Expands to "Hello"
+            printf("STRINGIZE(Hello): %s\n", STRINGIZE(Hello));  // Prints "Hello"
+
+            // Line continuation operator: Expands to '10 + 20 + 100 - 50'
+            int result = LONG_MACRO(10, 20);  
+            printf("LONG_MACRO(10, 20): %d\n", result);  // Prints 80 (10 + 20 + 100 - 50)
+
+            #if defined(FEATURE_ENABLED)  // Check if the macro 'FEATURE_ENABLED' is defined
+                printf("FEATURE_ENABLED is defined.\n");
+            #else
+                printf("FEATURE_ENABLED is not defined.\n");
+            #endif
+
+            // Using 'defined()' in a negated form:
+            #if !defined(DISABLED_FEATURE)  // Check if 'DISABLED_FEATURE' is NOT defined
+                printf("DISABLED_FEATURE is not defined.\n");
+            #else
+                printf("DISABLED_FEATURE is defined.\n");
+            #endif
+
+
+            return 0;
+        }
+
+
+    Macros
+        Macros in C are the names given to specific constant values or code statements which are replaced with their value/code before the compilation processor. 
+        C Macros are defined using the #define preprocessor directive.
+        Macros are useful for code reusability, defining constant values, defining inline functions, and conditional compilations.
+        
+        Object-like Macros
+            Defines a constant is an object-like macro
+            syntax: #define name value
+            Example:
+                #define PI 3.14
+        
+        Function-like Macros
+            Mainly Used to simulate functions aka Parameterized Macros
+            syntax: #define macro_name([parameter_list]) replacement_text
+            Example:
+                The following function can be replaced as a Macro
+                    int square(int x) {
+                        return x * x;
+                    }
+                
+                In Macro
+                    #define square(x) ((x) * (x))
+
+                Another Example
+                    #define MAX(x,y) ((x) > (y) ? (x) : (y))
+
+
+        Chained Macros
+            When a macro nested inside another macro, they are called Chained Macros.
+            Example:
+                #define PI 3.142
+                #define CIRCUMFERENCE(x) (2*PI*x)
+        Predefined Macros
+        |----------|------------------------------------------------------------------|
+        | Macro    | Description                                                      |
+        |----------|------------------------------------------------------------------|
+        | __DATE__ | The current date as a character literal in "MMM DD YYYY" format. |
+        |----------|------------------------------------------------------------------|
+        | __TIME__ | The current time as a character literal in "HH:MM:SS" format.    |
+        |----------|------------------------------------------------------------------|
+        | __FILE__ | This contains the current filename as a string literal.          |
+        |----------|------------------------------------------------------------------|
+        | __LINE__ | This contains the current line number as a decimal constant.     |
+        |----------|------------------------------------------------------------------|
+        | __STDC__ | Defined as 1 when the compiler complies with the ANSI standard.  |
+        |----------|------------------------------------------------------------------|
+
+    Header Files
+        The #include preprocessor directive is used to make the definitions of functions, constants and macros etc,
+        from one file, usually called as a header file, available for use in another C code. 
+        A header file has ".h" extension from which you can include the forward declarations of one or more predefined functions, constants, macros etc
+        
+        Syntax to Include Header Files
+            two methods,
+            1. #include <filename.h>
+            The name of the header file put inside angular brackets if it is available in system/default directory.
+            2. #include "filename.h"
+            The name of the header file put inside double quotation marks for user defined or non-standard header files available in same directory as source file.
+        System Header Files
+            The C compiler software is bundled with many pre-compiled header files. 
+            These are called system header files.
+            A well-known example is "stdio.h" – a header file included in almost every C program.
+            Each of the system header files contains a number of utility functions. 
+            These functions are often called library functions. 
+            For example, printf() and scanf() functions, needed for performing IO operations, are the library functions available in the "stdio.h" header file.
+
+            The C preprocessing directive #include basically is a request to the compiler to load the contents of a specific header file, so that they can be used in the program.
+            A usual practice in C or C++ programs is that we keep all the constants, macros, system wide global variables, and function prototypes in the header files and include that header file wherever it is required.
+        
+        Standard Header Files
+            |-------------|-------------------------------------------------------------------|------------------------------------|
+            | Header File | Description                                                       | functions/macros/variables         |
+            |-------------|-------------------------------------------------------------------|------------------------------------|
+            | stdio.h     | Input/Output functions                                            | scanf(), printf(), fopen(), FILE   |
+            |-------------|-------------------------------------------------------------------|------------------------------------|
+            | stdlib.h    | General utility functions                                         | atoi(), atof(), malloc()           |
+            |-------------|-------------------------------------------------------------------|------------------------------------|
+            | math.h      | Mathematics functions                                             | sin(), cos(), pow(), sqrt()        |
+            |-------------|-------------------------------------------------------------------|------------------------------------|
+            | string.h    | String functions                                                  | strcpy(), strlen(), strcat()       |
+            |-------------|-------------------------------------------------------------------|------------------------------------|
+            | ctype.h     | Character handling functions                                      | isalpha(), isupper(), ispunct()    |
+            |-------------|-------------------------------------------------------------------|------------------------------------|
+            | time.h      | Date and time functions                                           | asctime(), gmtime(), mktime()      |
+            |-------------|-------------------------------------------------------------------|------------------------------------|
+            | float.h     | Limits of float types                                             | FLT_ROUNDS, FLT_RADIX,             |
+            |-------------|-------------------------------------------------------------------|------------------------------------|
+            | limits.h    | Size of basic types                                               | CHAR_BIT, CHAR_MIN, CHAR_MAX       |
+            |-------------|-------------------------------------------------------------------|------------------------------------|
+            | wctype.h    | functions to determine the type contained in wide character data. | iswalpha(), iswctype(), iswupper() |
+            |-------------|-------------------------------------------------------------------|------------------------------------|
     */
 
 // C Compilation Process:
@@ -1114,5 +1468,5 @@ int main(){ //main function which will be run by default when program is execute
     int x = 7; //declaring and defining x and initilizing it with a value of 10 (Expression)
     printf("Hello, World!\n"); //to print Hello, World! in standard output and going to the next line   (Statement)
     
-    return 0; //returning 0 (statement)
+    return 0; //returning 0 (Statement)
 } 

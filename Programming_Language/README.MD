@@ -5,6 +5,6 @@ For Every Language I will assume you know how to write and run Them.
 ### [DevDocs](https://devdocs.io) has proper Documentation of all the Languages
 ### Note:
 - if There is any proper Documentation/CheatSheet already I will link to that that
-- You will also Find Snippets of Some of the languages in snippet repo in future
+- You will also Find Snippets for Some of the languages in snippet section in future
 ## Progress
 - [X] [C](c.c)
