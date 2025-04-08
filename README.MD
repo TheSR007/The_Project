@@ -14,6 +14,21 @@
 - [ ] Java
 - [ ] Assembly (x86/x64 && Arm/Arm64)
 
+## [Snippets](Snippets)
+- [X] [C](Snippets/c.json)
+- [ ] Lua
+- [ ] C++
+- [ ] Python
+- [ ] MarkDown
+- [ ] GO
+- [ ] Rust
+- [ ] Html
+- [ ] CSS
+- [ ] JavaScript
+- [ ] TypeScript
+- [ ] Java
+- [ ] Assembly (x86/x64 && Arm/Arm64)
+
 ## Tools
 - [ ] Visual Studio Code (Code Editor and IDE)
 - [ ] Git (Version Control)
